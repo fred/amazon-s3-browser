@@ -32,7 +32,7 @@ class S3File
   # It does not convey additional rights and is provided only for convenience.
   
   
-  @config_file = File.join(RAILS_ROOT, 'config/s3_config.yaml')
+  @config_file = File.join(RAILS_ROOT, 'config/s3_config.yml')
     
   def self.init
     logger = RAILS_DEFAULT_LOGGER
