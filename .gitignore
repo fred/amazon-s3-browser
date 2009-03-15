@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+config/memcached.yml
+config/database.yml
+config/amazon_s3.yml
+config/s3_config.yml
+public/files
+public/system
+.svn
+tmp/
+log/

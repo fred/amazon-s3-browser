@@ -1,0 +1,71 @@
+
+<h3><%= @file.path %></h3>
+
+<div id="actions">
+  <%= link_to "Delete Item" %>
+</div>
+
+<p>
+  Key: <%= @file.key %>
+</p>
+
+<p>
+  Size: <%= number_to_human_size @file.content_length %>
+</p>
+
+<p>
+  Mime Type: <%= @file.content_type %>
+</p>
+
+<p>
+  Last Modified: <%= @file.about['last_modified'] %>
+</p>
+
+<p>
+  Server Date: <%= @file.about['date'] %>
+</p>
+
+<p>
+  Cache Control: <%= @file.about['cache_control'].to_s %>
+</p>
+
+<p>
+  Cache Expires: <%= @file.about["expires"].to_s %>
+</p>
+
+<p>
+  Private URL: 
+  <%= link_to S3File.private_url(@file), @file.url, :target => "_blank" %> 
+</p>
+
+<p>
+  Public URL: 
+  <%= link_to S3File.public_url(@file), @file.url, :target => "_blank" %> 
+</p>
+
+<p>
+  Grants:
+  <br />
+  <ul>
+    <% @file.acl.grants.each do |t| %>
+      <li> <%= t.to_s %> </li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  Owner:
+  <ul>
+    <li> ID: <%= @file.acl.owner.attributes["id"] %> </li>
+    <li> Display Name: <%= @file.acl.owner.attributes["display_name"] %> </li>
+  </ul>
+</p>
+
+<p>
+  Raw About:
+  <% @file.about.each do |t| %>
+  <br />
+    [ <%=h t[0] %> => <%=h t[1] %> ]
+  <% end %>
+  
+</p>

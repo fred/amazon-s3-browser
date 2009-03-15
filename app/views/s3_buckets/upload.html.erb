@@ -1,0 +1,10 @@
+<form action="<%= url_for :action => 'upload_from_url', :id => @bucket.name %>" method="POST" >
+  <div>
+    <label for="filepath">Select a file to upload</label> <input id="filepath" type="text" name="filepath" />
+  </div>
+  <div>
+    <input type="submit" /> or <%= link_to "Cancel", :action => 'show', :id => @bucket.name %>
+  </div>
+  
+  <%= params.inspect %>
+</form>

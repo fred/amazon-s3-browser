@@ -1,0 +1,52 @@
+
+<h3>Objects of <%= @bucket.name %></h3>
+
+<div id="actions">
+  <%= link_to "Upload", :action => 'upload', :id => @bucket.name %>
+  <%= link_to "Delete Bucket" %>
+</div>
+
+<% if @files.blank? %>
+  No files
+<% else  %>
+  <table>
+  	<thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Size</th>
+        <th scope="col">Mime</th>
+        <th scope="col">Last Modified</th>
+        <th scope="col">Server Date</th>
+        <th scope="col">Cache Control</th>
+        <th scope="col">&nbsp;</th>
+        <th scope="col">Grants</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @files.each do |f| %>
+        <tr>
+          <td scope="col"><%= f.key %></td>
+          <td scope="col"><%= number_to_human_size f.content_length %></td>
+          <td><%= f.content_type %></td>
+          <td><%= f.about['last_modified'] %></td>
+          <td><%= f.about['date'] %></td>
+          <td><%= f.about['cache_control'] %></td>
+          <td>
+            <%= link_to "Private URL", S3File.private_url(f), :target => "_blank" %>
+            <br /> 
+            <%= link_to "Public URL", S3File.public_url(f), :target => "_blank" %>
+            <br />
+            <%= link_to "Details", :controller => "s3_files", :action => "show", :id => @bucket.name, :file => f.key %>
+          </td>
+          <td>
+            <ul>
+              <% f.acl.grants.each do |grant| %>
+                <li> <%= grant.to_s %> </li>
+              <% end %>
+            </ul>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

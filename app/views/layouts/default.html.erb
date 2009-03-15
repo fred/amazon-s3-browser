@@ -1,0 +1,24 @@
+<html>
+<head>
+  <title>S3 List</title>
+  <%= stylesheet_link_tag 'table' %>
+  <%= stylesheet_link_tag 'scaffold' %>
+</head>
+<body>
+  <div id="menu">
+    <div id="content">
+    	<h3><%= link_to "S3 Bucket List", :controller => 's3_buckets' %></h3>
+    	<div class="flash_notice">
+    	  <%= flash[:notice] %>
+    	</div>
+      <% unless @crumbs.blank? -%>
+        S3
+      	<% @crumbs.each do |c| %>
+      	   =>
+      	  <%= h c %>
+      	<% end %>
+      <% end -%>
+      <%= yield %>
+  </div>
+</body>
+</html>

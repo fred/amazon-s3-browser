@@ -1,0 +1,23 @@
+<div id="actions">
+  <%= link_to "New Bucket", :action => 'new' %>
+</div>
+
+<table summary="Buckets">
+  <caption>Table designs</caption>
+	<thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Files</th>
+      <th scope="col">Creation Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @buckets.each do |b| %>
+      <tr>
+        <td scope="col"><%= link_to b.name, { :action => 'show', :id => b.name } %></td>
+        <td scope="col"><%= h b.size %></td>
+        <td scope="col"><%= b.creation_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,108 @@
+/**************************************************
+ * Data Tables and Cascading Style Sheets Gallery *
+ *  http://icant.co.uk/csstablegallery/index.php  *
+ *  --------------------------------------------  *
+ * Author: Taimar Teetlok > http://taimar.pri.ee/ *
+ **************************************************/
+
+table {
+	width: 100%;
+	color: #212424;
+	margin: 0 0 1em 0;	
+	font: 80%/150% "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Lucida, Helvetica, sans-serif;
+}
+table, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+caption {
+	width: 100%;
+	height: 39px;
+	font-size: 0;
+	line-height: 0;
+	text-indent: -5000em;
+}
+caption:hover {
+	background-position: 98% 100%;
+}
+
+/* HEADER */
+
+thead {
+	background: #524123;
+}
+thead tr th {
+	padding: 1em 0;
+	text-align: center;
+	color: #FAF7D4;
+	border-bottom: 3px solid #A5D768;
+}
+
+/* FOOTER */
+
+tfoot {
+	color: #fff;
+	background: #524123;
+}
+tfoot tr th, tfoot tr td {
+	padding: .2em .6em;
+	border-top: 2px solid #A5D768;
+}
+tfoot tr th {
+}
+tfoot tr td {
+	text-align: right;
+}
+
+/* BODY */
+
+tbody tr td {
+	background: #DDF0BD url('/images/bg_cell.gif') no-repeat top left;
+}
+tbody tr.odd td {
+	background-color: #D0EBA6;
+}
+tbody tr td:hover, tbody tr.odd td:hover {
+	background: #c5e894;
+}
+tbody tr th, tbody tr td {
+	padding: 0.1em 0.4em;
+	border: 1px solid #a6ce39;
+}
+tbody tr th {
+	padding-right: 1em;
+	text-align: right;
+	font-weight: normal;
+	background: #c5e894 url('/images/bg_cell.gif') no-repeat top left;
+	text-transform: uppercase;
+}
+tbody tr th:hover {
+	background: #D0EBA6;
+}
+table a[href*="taimar.pri.ee"] {
+	float: left;
+	width: 64px;
+	height: 64px;
+	font-size: 0;
+	text-decoration: none;
+	background: transparent url('/images/taimar.gif') no-repeat 0 0;
+}
+table a[title^="Download"] {
+	float: none;
+	width: auto;
+	height: auto;
+	font-size: 100%;
+	background: none;
+}
+
+/* LINKS */
+
+table a {
+	color: #854400;
+	text-decoration: none;
+}
+table a:hover {
+	text-decoration: underline;
+}
