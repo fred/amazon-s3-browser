@@ -1,0 +1,4 @@
+aws_access_key: "0XXX8XX5XX6XX5XX2XXX2"
+aws_secret_access_key: "qwe1rty3uio5pzx7cvb9nma11sdf13ghjkl"
+use_ssl: false
+default_bucket: "my_bucket_name"
