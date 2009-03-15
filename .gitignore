@@ -9,3 +9,5 @@ public/system
 .svn
 tmp/
 log/
+Capfile
+config/deploy.rb
