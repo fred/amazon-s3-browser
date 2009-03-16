@@ -18,14 +18,14 @@
         <th scope="col">Last Modified</th>
         <th scope="col">Server Date</th>
         <th scope="col">Cache Control</th>
-        <th scope="col">&nbsp;</th>
+        <th scope="col">URLs</th>
         <th scope="col">Grants</th>
       </tr>
     </thead>
     <tbody>
       <% @files.each do |f| %>
         <tr>
-          <td scope="col"><%= f.key %></td>
+          <td scope="col"><%= link_to f.key, :controller => "s3_files", :action => "show", :id => @bucket.name, :file => f.key %> </td>
           <td scope="col"><%= number_to_human_size f.content_length %></td>
           <td><%= f.content_type %></td>
           <td><%= f.about['last_modified'] %></td>
@@ -35,8 +35,6 @@
             <%= link_to "Private URL", S3File.private_url(f), :target => "_blank" %>
             <br /> 
             <%= link_to "Public URL", S3File.public_url(f), :target => "_blank" %>
-            <br />
-            <%= link_to "Details", :controller => "s3_files", :action => "show", :id => @bucket.name, :file => f.key %>
           </td>
           <td>
             <ul>

@@ -53,7 +53,7 @@ class S3File
     end
   end
   
-  def self.find(object_name, bucket_name)
+  def self.find(object_name, bucket_name=@default_bucket)
     AWS::S3::S3Object.find(object_name, bucket_name)
   end
   

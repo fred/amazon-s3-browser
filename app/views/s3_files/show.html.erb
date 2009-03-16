@@ -1,17 +1,13 @@
+<p>Path: <%= @file.path %></p>
 
-<h3><%= @file.path %></h3>
+<% if @file.content_type.match("image") %>
+  <img src="<%= @file.url %>" alt="<%= @file.url %>" />
+  <p> Image Type: <%= @file.content_type %> </p>
+<% end %>
 
-<div id="actions">
-  <%= link_to "Delete Item" %>
-</div>
+<p>Key: <%= @file.key %></p>
 
-<p>
-  Key: <%= @file.key %>
-</p>
-
-<p>
-  Size: <%= number_to_human_size @file.content_length %>
-</p>
+<p>Size: <%= number_to_human_size @file.content_length %></p>
 
 <p>
   Mime Type: <%= @file.content_type %>
@@ -67,5 +63,4 @@
   <br />
     [ <%=h t[0] %> => <%=h t[1] %> ]
   <% end %>
-  
 </p>
