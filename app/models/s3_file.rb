@@ -161,8 +161,7 @@ class S3File
     # result = AWS::S3::S3Object.acl(object.key, @default_bucket, policy)
   end
   
-  protected
-  def bucket_name
+  def self.default_bucket
     @default_bucket
   end
   
